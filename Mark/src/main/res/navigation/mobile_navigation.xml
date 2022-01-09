@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Semester1"
+    app:startDestination="@id/nav_mathematics">
+
+    <fragment
+        android:id="@+id/nav_german"
+        android:name="hes.wallis.mark.ui.german.GermanFragment"
+        android:label="@string/menu_german"
+        tools:layout="@layout/fragment_german" />
+    <fragment
+        android:id="@+id/nav_mathematics"
+        android:name="hes.wallis.mark.ui.mathematics.MathematicsFragment"
+        android:label="@string/menu_mathematics"
+        tools:layout="@layout/fragment_mathematics" />
+    <fragment
+        android:id="@+id/nav_informatic"
+        android:name="hes.wallis.mark.ui.informatics.InformaticsFragment"
+        android:label="@string/menu_informatic"
+        tools:layout="@layout/fragment_informatic" />
+    <fragment
+        android:id="@+id/nav_physics"
+        android:name="hes.wallis.mark.ui.physics.PhysicsFragment"
+        android:label="@string/menu_physic"
+        tools:layout="@layout/fragment_physics" />
+    <fragment
+        android:id="@+id/nav_electricity"
+        android:name="hes.wallis.mark.ui.electricity.ElectricityFragment"
+        android:label="@string/menu_electricity"
+        tools:layout="@layout/fragment_electricity" />
+    <fragment
+        android:id="@+id/nav_mechanic"
+        android:name="hes.wallis.mark.ui.mechanic.MechanicFragment"
+        android:label="@string/menu_mechanic"
+        tools:layout="@layout/fragment_mechanic" />
+
+</navigation>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SyndGrades</string>
+    <string name="tab_text_1">Math</string>
+    <string name="tab_text_2">Inf</string>
+    <string name="tab_text_3">Phys</string>
+    <string name="tab_text_4">ELN</string>
+    <string name="tab_text_5">ELA</string>
+    <string name="tab_text_6">CCo</string>
+    <string name="tab_text_7">Tem</string>
+    <string name="tab_text_8">Stat</string>
+    <string name="tab_text_9">All</string>
+</resources>

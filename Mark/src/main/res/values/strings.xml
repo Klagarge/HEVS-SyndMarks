@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Synd1 Marks</string>
+    <string name="nav_header_title">Powered by Team DickClock</string>
+    <string name="nav_header_subtitle">team@dickclock.ch</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_informatic">Informatic</string>
+    <string name="menu_electricity">Electricity</string>
+    <string name="menu_physic">Physic</string>
+    <string name="menu_mathematics">Mathematics</string>
+    <string name="menu_german">German</string>
+    <string name="menu_mechanic">Mechanic</string>
+</resources>
