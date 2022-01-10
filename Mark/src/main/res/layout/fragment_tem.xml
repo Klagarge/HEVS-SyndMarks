@@ -3,42 +3,47 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/S1German"
+    android:id="@+id/S1TeM"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.german.GermanFragment">
-
+    tools:context=".ui.TeM.TeMFragment" >
 
     <hes.wallis.mark.MarkLine
-        android:id="@+id/Exam_1"
+        android:id="@+id/Rapport_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/Semester"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="64dp"
         app:layout_constraintTop_toTopOf="parent">
 
     </hes.wallis.mark.MarkLine>
 
     <hes.wallis.mark.MarkLine
+        android:id="@+id/Rapport_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/Exam_1"
+        app:layout_constraintTop_toBottomOf="@+id/Rapport_1" />
+
+    <hes.wallis.mark.MarkLine
+        android:id="@+id/Exam_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <hes.wallis.mark.MarkLine
         android:id="@+id/Semester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-    </hes.wallis.mark.MarkLine>
+        app:layout_constraintBottom_toTopOf="@+id/Average_TeM"
+        app:layout_constraintTop_toBottomOf="@+id/Exam_1" />
 
     <hes.wallis.mark.Average
-        android:id="@+id/Average_German"
+        android:id="@+id/Average_TeM"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Semester" />
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

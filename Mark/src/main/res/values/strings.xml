@@ -5,9 +5,12 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_informatic">Informatic</string>
-    <string name="menu_electricity">Electricity</string>
+    <string name="menu_ein">EIN</string>
+    <string name="menu_eia">EIA</string>
     <string name="menu_physic">Physic</string>
     <string name="menu_mathematics">Mathematics</string>
     <string name="menu_german">German</string>
-    <string name="menu_mechanic">Mechanic</string>
+    <string name="menu_tem">TeM</string>
+    <string name="menu_cco">CCo</string>
+    <string name="menu_resume">Resume</string>
 </resources>

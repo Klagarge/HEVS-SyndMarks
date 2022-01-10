@@ -1,6 +1,7 @@
-package hes.wallis.mark.ui.german;
+package hes.wallis.mark.ui.TeM;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,43 +15,46 @@ import androidx.lifecycle.ViewModelProvider;
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentGermanBinding;
+import hes.wallis.mark.databinding.FragmentTemBinding;
 
-public class GermanFragment extends SubjectFragment {
 
-    private GermanViewModel germanViewModel;
-    private FragmentGermanBinding binding;
+public class TeMFragment extends SubjectFragment {
+
+    private TeMViewModel teMViewModel;
+    private FragmentTemBinding binding;
 
     Double average;
     Marks averageSemester1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        germanViewModel =
-                new ViewModelProvider(this).get(GermanViewModel.class);
+        teMViewModel =
+                new ViewModelProvider(this).get(TeMViewModel.class);
 
-        binding = FragmentGermanBinding.inflate(inflater, container, false);
+        binding = FragmentTemBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        germanViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        teMViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             }
         });
 
+        Marks Rapport1 = new Marks(binding.Rapport1);
+        Marks Rapport2 = new Marks(binding.Rapport2);
         Marks Exam1 = new Marks(binding.Exam1);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageGerman, average);
+        averageSemester1 = new Marks(binding.AverageTeM, average);
 
         return root;
     }
 
     @Override
-     public void calculateAvg(){
-        average = CalculateAverageMarks.German();
+    public void calculateAvg(){
+        average = CalculateAverageMarks.TeM();
     }
+
     @Override
     public void refresh(){
         super.refresh();

@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <item
+        android:id="@+id/nav_resume"
+        android:title="@string/menu_resume" />
     <group
         android:id="@+id/German"
-        android:checkableBehavior="single" >
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_german"
             android:icon="@drawable/german"
@@ -26,18 +29,28 @@
         <item
             android:id="@+id/nav_physics"
             android:icon="@drawable/physic"
-            android:title="@string/menu_physic" />
+            android:title="@string/menu_physic"
+            android:visible="false" />
     </group>
     <group
         android:id="@+id/BusinessBases"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_electricity"
+            android:id="@+id/nav_ein"
             android:icon="@drawable/electricity"
-            android:title="@string/menu_electricity" />
+            android:title="@string/menu_ein" />
         <item
-            android:id="@+id/nav_mechanic"
+            android:id="@+id/nav_eia"
+            android:icon="@drawable/electricity"
+            android:title="@string/menu_eia"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_tem"
             android:icon="@drawable/mechanic"
-            android:title="@string/menu_mechanic" />
+            android:title="@string/menu_tem" />
+        <item
+            android:id="@+id/nav_cco"
+            android:icon="@drawable/mechanic"
+            android:title="@string/menu_cco" />
     </group>
 </menu>

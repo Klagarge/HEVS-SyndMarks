@@ -1,4 +1,4 @@
-package hes.wallis.mark.ui.german;
+package hes.wallis.mark.ui.cco;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,42 +14,43 @@ import androidx.lifecycle.ViewModelProvider;
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentGermanBinding;
+import hes.wallis.mark.databinding.FragmentCcoBinding;
 
-public class GermanFragment extends SubjectFragment {
 
-    private GermanViewModel germanViewModel;
-    private FragmentGermanBinding binding;
+public class CCoFragment extends SubjectFragment {
+
+    private hes.wallis.mark.ui.cco.CCoViewModel CCoViewModel;
+    private FragmentCcoBinding binding;
 
     Double average;
     Marks averageSemester1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        germanViewModel =
-                new ViewModelProvider(this).get(GermanViewModel.class);
+        CCoViewModel =
+                new ViewModelProvider(this).get(CCoViewModel.class);
 
-        binding = FragmentGermanBinding.inflate(inflater, container, false);
+        binding = FragmentCcoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        germanViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        CCoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             }
         });
 
         Marks Exam1 = new Marks(binding.Exam1);
+        Marks Project = new Marks(binding.Project);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageGerman, average);
+        averageSemester1 = new Marks(binding.AverageCCo, average);
 
         return root;
     }
 
     @Override
-     public void calculateAvg(){
-        average = CalculateAverageMarks.German();
+    public void calculateAvg(){
+        average = CalculateAverageMarks.CCo();
     }
     @Override
     public void refresh(){

@@ -3,8 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Semester1"
-    app:startDestination="@id/nav_mathematics">
+    app:startDestination="@id/nav_resume">
 
+    <fragment
+        android:id="@+id/nav_resume"
+        android:name="hes.wallis.mark.ui.resume.ResumeFragment"
+        android:label="@string/menu_resume"
+        tools:layout="@layout/fragment_resume" />
     <fragment
         android:id="@+id/nav_german"
         android:name="hes.wallis.mark.ui.german.GermanFragment"
@@ -26,14 +31,18 @@
         android:label="@string/menu_physic"
         tools:layout="@layout/fragment_physics" />
     <fragment
-        android:id="@+id/nav_electricity"
-        android:name="hes.wallis.mark.ui.electricity.ElectricityFragment"
-        android:label="@string/menu_electricity"
-        tools:layout="@layout/fragment_electricity" />
+        android:id="@+id/nav_ein"
+        android:name="hes.wallis.mark.ui.ein.EINFragment"
+        android:label="@string/menu_ein"
+        tools:layout="@layout/fragment_ein" />
     <fragment
-        android:id="@+id/nav_mechanic"
-        android:name="hes.wallis.mark.ui.mechanic.MechanicFragment"
-        android:label="@string/menu_mechanic"
-        tools:layout="@layout/fragment_mechanic" />
+        android:id="@+id/nav_tem"
+        android:name="hes.wallis.mark.ui.TeM.TeMFragment"
+        android:label="@string/menu_tem"
+        tools:layout="@layout/fragment_tem" />
+    <fragment
+        android:id="@+id/nav_cco"
+        android:name="hes.wallis.mark.ui.cco.CCoFragment"
+        android:label="@string/menu_cco" />
 
 </navigation>
