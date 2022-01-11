@@ -41,20 +41,29 @@ public class CalculateAverageMarks {
         average = Marks.aroundDixie(average);
         return average;
     }
-    public static Double IT(){
-        Double markItS1Exam1 = Marks.getFromMemorize("S1ITExam_1");
+    public static Double ITbonus(){
         Double markItS1Bonus1 = Marks.getFromMemorize("S1ITBonus_1");
         Double markItS1Bonus2 = Marks.getFromMemorize("S1ITBonus_2");
         Double markItS1Project = Marks.getFromMemorize("S1ITProject");
+
+        Double BonusS1 = 0.0;
+        BonusS1 += markItS1Bonus1/43;
+        BonusS1 += markItS1Bonus2/16.0;
+        BonusS1 += 3*(markItS1Project/12.0);
+        BonusS1 /= 5;
+        BonusS1 *= 0.25;
+        BonusS1 = Marks.around2Dixie(BonusS1);
+
+        return BonusS1;
+    }
+    public static Double IT(){
+        Double markItS1Exam1 = Marks.getFromMemorize("S1ITExam_1");
         Double markItS1semester = Marks.getFromMemorize("S1ITSemester");
+        double BonusS1 = ITbonus();
 
-        Double avgBonus;
-        Double Bonus = 0.0;
-
-
-        Double average;
+        double average;
         if(markItS1Exam1 != 0.0 && markItS1semester != 0.0){
-            average = (markItS1Exam1 + 2 * (markItS1semester+Bonus))/3;
+            average = (markItS1Exam1 + 2 * (markItS1semester+BonusS1))/3;
         } else {
             average = markItS1Exam1 + markItS1semester;
         }

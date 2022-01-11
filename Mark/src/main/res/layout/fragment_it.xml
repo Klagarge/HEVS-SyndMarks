@@ -17,45 +17,55 @@
 
     </hes.wallis.mark.MarkLine>
 
-    <hes.wallis.mark.PointLine
-        android:id="@+id/Bonus_1"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Exam_1" />
+        android:layout_marginTop="83dp"
+        app:layout_constraintTop_toBottomOf="@+id/Exam_1">
 
-    <hes.wallis.mark.PointLine
-        android:id="@+id/Bonus_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bonus_1">
+        <hes.wallis.mark.PointLine
+            android:id="@+id/Bonus_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </hes.wallis.mark.PointLine>
+        <hes.wallis.mark.PointLine
+            android:id="@+id/Bonus_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/Bonus_1">
 
-    <hes.wallis.mark.PointLine
-        android:id="@+id/Project"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bonus_2">
+        </hes.wallis.mark.PointLine>
 
-    </hes.wallis.mark.PointLine>
+        <hes.wallis.mark.PointLine
+            android:id="@+id/Project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/Bonus_2">
+
+        </hes.wallis.mark.PointLine>
+
+        <hes.wallis.mark.Average
+            android:id="@+id/Bonus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/Project" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <hes.wallis.mark.MarkLine
         android:id="@+id/Semester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="83dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Project">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
     </hes.wallis.mark.MarkLine>
 
@@ -63,7 +73,7 @@
         android:id="@+id/Average_IT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="83dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Semester" />

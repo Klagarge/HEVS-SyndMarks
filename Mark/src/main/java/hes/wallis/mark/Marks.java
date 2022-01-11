@@ -28,14 +28,17 @@ public class Marks extends MainActivityRank {
         return getFromMemorize(key);
     }
 
-    static public double aroundDemi(double x) {
-        return (double) (Math.round(x*2.0) / 2.0);
+    static public Double aroundDemi(Double x) {
+        return (Double) (Math.round(x*2.0) / 2.0);
     }
-    static public double aroundDixie(double x) {
-        return (double) (Math.round(x*10.0) / 10.0);
+    static public Double aroundDemiDixie(Double x) {
+        return (Double) (Math.round(x*20.0) / 20.0);
     }
-    static public double around2Dixie(double x) {
-        return (double) (Math.round(x*20.0) / 20.0);
+    static public Double aroundDixie(Double x) {
+        return (Double) (Math.round(x*10.0) / 10.0);
+    }
+    static public Double around2Dixie(Double x) {
+        return (Double) (Math.round(x*100.0) / 100.0);
     }
 
     static Double PbPressed(String key, Button check, Button discard, EditText mark){
@@ -84,8 +87,8 @@ public class Marks extends MainActivityRank {
     static void writeOnMemorize(String key, Double n){
         MainActivityRank.editorMarks.putFloat(key, n.floatValue());
         MainActivityRank.editorMarks.commit();
-        Log.i("DebugHER", "key: " + key);
-        Log.i("DebugHER", "write: " + n.toString());
+        //Log.i("DebugHER", "key: " + key);
+        //Log.i("DebugHER", "write: " + n.toString());
     }
 
     public static String toHing(Button button, String def){

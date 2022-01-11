@@ -1,15 +1,13 @@
 package hes.wallis.mark.ui.it;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import hes.wallis.mark.CalculateAverageMarks;
@@ -23,7 +21,9 @@ public class ITFragment extends SubjectFragment {
     private FragmentItBinding binding;
 
     Double average;
+    Double bonusS1;
     Marks averageSemester1;
+    Marks ITBonusS1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class ITFragment extends SubjectFragment {
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
         averageSemester1 = new Marks(binding.AverageIT, average);
+        ITBonusS1 = new Marks(binding.Bonus, bonusS1);
 
         return root;
     }
@@ -47,6 +48,7 @@ public class ITFragment extends SubjectFragment {
     @Override
     public void calculateAvg(){
         average = CalculateAverageMarks.IT();
+        bonusS1 = CalculateAverageMarks.ITbonus();
     }
 
     @Override
@@ -54,6 +56,10 @@ public class ITFragment extends SubjectFragment {
         super.refresh();
         EditText output = averageSemester1.avg.outputMark;
         output.setText(average.toString());
+        Log.i("DebugHER", "Average IT: " + average);
+        EditText bonus = ITBonusS1.avg.outputMark;
+        bonus.setText(bonusS1.toString());
+        Log.i("DebugHER", "Bonus IT: " + bonusS1);
     }
 
     @Override
