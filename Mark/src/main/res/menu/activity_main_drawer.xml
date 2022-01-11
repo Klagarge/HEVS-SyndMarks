@@ -23,9 +23,9 @@
             android:icon="@drawable/mathematics"
             android:title="@string/menu_mathematics" />
         <item
-            android:id="@+id/nav_informatic"
+            android:id="@+id/nav_it"
             android:icon="@drawable/informatic"
-            android:title="@string/menu_informatic" />
+            android:title="@string/menu_it" />
         <item
             android:id="@+id/nav_physics"
             android:icon="@drawable/physic"

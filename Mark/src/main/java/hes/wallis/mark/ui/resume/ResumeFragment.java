@@ -39,7 +39,7 @@ public class ResumeFragment extends SubjectFragment {
 
         Double avgGerman = CalculateAverageMarks.German();
         Double avgMath = CalculateAverageMarks.Mathematics();
-        Double avgInformatic = CalculateAverageMarks.Informatic();
+        Double avgIT = CalculateAverageMarks.IT();
         Double avgPhysic = CalculateAverageMarks.Physic();
         Double avgSciences = CalculateAverageMarks.Science();
         Double avgMechanic = CalculateAverageMarks.Mechanic();
@@ -49,7 +49,7 @@ public class ResumeFragment extends SubjectFragment {
 
         Marks german = new Marks(binding.German, Marks.aroundDemi(avgGerman));
         Marks mathematics = new Marks(binding.Mathematics, avgMath);
-        Marks informatic = new Marks(binding.Informatics, avgInformatic);
+        Marks it = new Marks(binding.IT, avgIT);
         //Marks physic = new Marks(binding.Physic, avgPhysic);
         Marks mechanic = new Marks(binding.Mecanic, avgMechanic);
         Marks electricity = new Marks(binding.Electricity, avgElectricity);

@@ -73,7 +73,7 @@
         </hes.wallis.mark.Average>
 
         <hes.wallis.mark.Average
-            android:id="@+id/Informatics"
+            android:id="@+id/IT"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,7 @@
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Informatics" />
+            app:layout_constraintTop_toBottomOf="@+id/IT" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

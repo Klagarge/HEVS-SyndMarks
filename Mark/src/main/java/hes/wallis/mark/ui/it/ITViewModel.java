@@ -1,14 +1,14 @@
-package hes.wallis.mark.ui.informatics;
+package hes.wallis.mark.ui.it;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class InformaticsViewModel extends ViewModel {
+public class ITViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public InformaticsViewModel() {
+    public ITViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is Informatic fragment");
     }

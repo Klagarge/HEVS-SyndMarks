@@ -14,6 +14,10 @@ public class Marks extends MainActivityRank {
         MarkLine foo = (MarkLine) view;
         key = foo.createTag(view);
     }
+    public Marks(View view, int pts){
+        PointLine foo = (PointLine) view;
+        key = foo.createTag(view, pts);
+    }
 
     public Marks(View view, Double mark){
         avg = (Average) view;
@@ -53,20 +57,18 @@ public class Marks extends MainActivityRank {
         }
         return null;
     }
-
-    public static Double PbPressed(Button Pb, EditText mark){
+    static Double PbPressedPoints(String key, Button check, Button discard, EditText mark){
         Double grade;
         String s = mark.getText().toString();
         if(!s.equals("")){
-            Pb.setVisibility(View.GONE);
+            check.setVisibility(View.GONE);
             mark.setEnabled(false);
+            discard.setVisibility(View.VISIBLE);
             grade = Double.parseDouble(s);
-            if(grade>6){
-                mark.setText("6");
-                grade = 6.0;
-            }
-            writeOnMemorize(MarkLine.getTag(Pb), grade);
+            writeOnMemorize(key, grade);
             return grade;
+        } else {
+            discard.setVisibility(View.GONE);
         }
         return null;
     }

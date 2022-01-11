@@ -23,14 +23,44 @@ public class CalculateAverageMarks {
         Double markMathematicsS1Exam1 = Marks.getFromMemorize("S1MathematicsExam_1");
         Double markMathematicsS1Exam2 = Marks.getFromMemorize("S1MathematicsExam_2");
         Double markMathematicsS1semester = Marks.getFromMemorize("S1MathematicsSemester");
-        Double average = 0.0;
+
+        Double averageS1;
+        if(markMathematicsS1Exam1 != 0.0 && markMathematicsS1Exam2 != 0.0){
+            averageS1 = (markMathematicsS1Exam1 + markMathematicsS1Exam2)/2;
+        } else {
+            averageS1 = markMathematicsS1Exam1 + markMathematicsS1Exam2;
+        }
+        averageS1 = Marks.aroundDixie(averageS1);
+
+        Double average;
+        if(averageS1 != 0.0 && markMathematicsS1semester != 0.0){
+            average = (averageS1 + markMathematicsS1semester)/2;
+        } else {
+            average = averageS1 + markMathematicsS1semester;
+        }
+        average = Marks.aroundDixie(average);
         return average;
     }
-    public static Double Informatic(){
-        Double markInformaticS1Exam1 = Marks.getFromMemorize("S1InformaticExam_1");
-        Double markInformaticS1Bonus = Marks.getFromMemorize("S1InformaticBonus");
-        Double markInformaticS1semester = Marks.getFromMemorize("S1InformaticSemester");
-        Double average = 0.0;
+    public static Double IT(){
+        Double markItS1Exam1 = Marks.getFromMemorize("S1ITExam_1");
+        Double markItS1Bonus1 = Marks.getFromMemorize("S1ITBonus_1");
+        Double markItS1Bonus2 = Marks.getFromMemorize("S1ITBonus_2");
+        Double markItS1Project = Marks.getFromMemorize("S1ITProject");
+        Double markItS1semester = Marks.getFromMemorize("S1ITSemester");
+
+        Double avgBonus;
+        Double Bonus = 0.0;
+
+
+        Double average;
+        if(markItS1Exam1 != 0.0 && markItS1semester != 0.0){
+            average = (markItS1Exam1 + 2 * (markItS1semester+Bonus))/3;
+        } else {
+            average = markItS1Exam1 + markItS1semester;
+        }
+        average = Marks.aroundDixie(average);
+        if(average > 6.0) average = 6.0;
+
         return average;
     }
     public static Double Physic(){
@@ -38,7 +68,28 @@ public class CalculateAverageMarks {
         return average;
     }
     public static Double Science(){
+        Double math = Mathematics();
+        Double it = IT();
+        Double phys = Physic();
+
         Double average = 0.0;
+        if(math != 0.0 && it != 0.0 && phys != 0.0){
+            average += 16 * math;
+            average += 7 * it;
+            average += 3 * phys;
+            average /= 26;
+        } else if(math != 0.0 && it != 0.0){
+            average += 16 * math;
+            average += 7 * it;
+            average /= 23;
+        } else if(math != 0.0){
+            average += math;
+        } else if(it != 0.0){
+            average += it;
+        } else {
+            average = 0.0;
+        }
+        average = Marks.aroundDemi(average);
         return average;
     }
 

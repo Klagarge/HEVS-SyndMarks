@@ -21,10 +21,10 @@
         android:label="@string/menu_mathematics"
         tools:layout="@layout/fragment_mathematics" />
     <fragment
-        android:id="@+id/nav_informatic"
-        android:name="hes.wallis.mark.ui.informatics.InformaticsFragment"
-        android:label="@string/menu_informatic"
-        tools:layout="@layout/fragment_informatic" />
+        android:id="@+id/nav_it"
+        android:name="hes.wallis.mark.ui.it.ITFragment"
+        android:label="@string/menu_it"
+        tools:layout="@layout/fragment_it" />
     <fragment
         android:id="@+id/nav_physics"
         android:name="hes.wallis.mark.ui.physics.PhysicsFragment"

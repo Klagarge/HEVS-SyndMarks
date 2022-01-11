@@ -1,11 +1,9 @@
-package hes.wallis.mark.ui.mathematics;
+package hes.wallis.mark.ui.it;
 
 import android.os.Bundle;
-import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -16,47 +14,39 @@ import androidx.lifecycle.ViewModelProvider;
 
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
-import hes.wallis.mark.R;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.TestIfMark;
-import hes.wallis.mark.databinding.FragmentMathematicsBinding;
+import hes.wallis.mark.databinding.FragmentItBinding;
 
-public class MathematicsFragment extends SubjectFragment {
+public class ITFragment extends SubjectFragment {
 
-    private hes.wallis.mark.ui.mathematics.MathematicsViewModel MathematicsViewModel;
-    private FragmentMathematicsBinding binding;
+    private ITViewModel ITViewModel;
+    private FragmentItBinding binding;
 
     Double average;
     Marks averageSemester1;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        MathematicsViewModel =
-                new ViewModelProvider(this).get(MathematicsViewModel.class);
+        ITViewModel =
+                new ViewModelProvider(this).get(ITViewModel.class);
 
-        binding = FragmentMathematicsBinding.inflate(inflater, container, false);
+        binding = FragmentItBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        MathematicsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-            }
-        });
-
         Marks Exam1 = new Marks(binding.Exam1);
-        Marks Exam2 = new Marks(binding.Exam2);
+        Marks Bonus1 = new Marks(binding.Bonus1, 43);
+        Marks Bonus2 = new Marks(binding.Bonus2, 16);
+        Marks Project = new Marks(binding.Project, 0);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageMathematics, average);
+        averageSemester1 = new Marks(binding.AverageIT, average);
 
         return root;
     }
 
-
     @Override
     public void calculateAvg(){
-        average = CalculateAverageMarks.Mathematics();
+        average = CalculateAverageMarks.IT();
     }
 
     @Override
@@ -66,12 +56,9 @@ public class MathematicsFragment extends SubjectFragment {
         output.setText(average.toString());
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
-
-
 }
