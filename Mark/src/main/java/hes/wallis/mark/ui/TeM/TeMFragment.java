@@ -44,11 +44,12 @@ public class TeMFragment extends SubjectFragment {
 
         Marks Rapport1 = new Marks(binding.Rapport1);
         Marks Rapport2 = new Marks(binding.Rapport2);
-        Marks Rapport3 = new Marks(binding.Rapport2);
+        Marks Rapport3 = new Marks(binding.Rapport3);
         Marks Exam1 = new Marks(binding.Exam1);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
         averageSemester1 = new Marks(binding.AverageTeM, average);
+        averageRapportsSemester1 = new Marks(binding.Rapports, avgRapports);
 
         return root;
     }

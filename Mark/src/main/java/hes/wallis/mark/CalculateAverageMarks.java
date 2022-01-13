@@ -105,7 +105,7 @@ public class CalculateAverageMarks {
             averageRapport += markTeMS1Rapport3;
             averageRapport /= 3;
         } else {
-            averageRapport = average(markTeMS1Rapport2, markTeMS1Rapport3);
+            averageRapport = average(markTeMS1Rapport1, markTeMS1Rapport2);
         }
 
         return Marks.aroundDixie(averageRapport);
