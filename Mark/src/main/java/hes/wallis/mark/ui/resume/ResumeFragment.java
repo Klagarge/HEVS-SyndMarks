@@ -1,6 +1,7 @@
 package hes.wallis.mark.ui.resume;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import hes.wallis.mark.BuildConfig;
 import hes.wallis.mark.CalculateAverageMarks;
+import hes.wallis.mark.MainActivityRank;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
 import hes.wallis.mark.databinding.FragmentResumeBinding;
@@ -30,13 +33,6 @@ public class ResumeFragment extends SubjectFragment {
         binding = FragmentResumeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        resumeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-            }
-        });
-
         Double avgGerman = CalculateAverageMarks.German();
         Double avgMath = CalculateAverageMarks.Mathematics();
         Double avgIT = CalculateAverageMarks.IT();
@@ -45,7 +41,6 @@ public class ResumeFragment extends SubjectFragment {
         Double avgMechanic = CalculateAverageMarks.Mechanic();
         Double avgElectricity = CalculateAverageMarks.Electricity();
         Double avgBusiness = CalculateAverageMarks.Business();
-
 
         Marks german = new Marks(binding.German, Marks.aroundDemi(avgGerman));
         Marks mathematics = new Marks(binding.Mathematics, avgMath);

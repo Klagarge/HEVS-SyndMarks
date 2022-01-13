@@ -36,7 +36,7 @@ public class ITFragment extends SubjectFragment {
         Marks Exam1 = new Marks(binding.Exam1);
         Marks Bonus1 = new Marks(binding.Bonus1, 43);
         Marks Bonus2 = new Marks(binding.Bonus2, 16);
-        Marks Project = new Marks(binding.Project, 0);
+        Marks Project = new Marks(binding.Project, 12);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
         averageSemester1 = new Marks(binding.AverageIT, average);

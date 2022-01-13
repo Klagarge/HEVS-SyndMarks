@@ -24,7 +24,9 @@ public class TeMFragment extends SubjectFragment {
     private FragmentTemBinding binding;
 
     Double average;
+    Double avgRapports;
     Marks averageSemester1;
+    Marks averageRapportsSemester1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class TeMFragment extends SubjectFragment {
 
         Marks Rapport1 = new Marks(binding.Rapport1);
         Marks Rapport2 = new Marks(binding.Rapport2);
+        Marks Rapport3 = new Marks(binding.Rapport2);
         Marks Exam1 = new Marks(binding.Exam1);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
@@ -53,6 +56,7 @@ public class TeMFragment extends SubjectFragment {
     @Override
     public void calculateAvg(){
         average = CalculateAverageMarks.TeM();
+        avgRapports = CalculateAverageMarks.TeMrapports();
     }
 
     @Override
@@ -60,6 +64,8 @@ public class TeMFragment extends SubjectFragment {
         super.refresh();
         EditText output = averageSemester1.avg.outputMark;
         output.setText(average.toString());
+        EditText rapports = averageRapportsSemester1.avg.outputMark;
+        rapports.setText(avgRapports.toString());
     }
 
     @Override

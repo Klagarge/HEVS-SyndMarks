@@ -1,12 +1,15 @@
 package hes.wallis.mark;
 
+import android.content.ComponentName;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewParent;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -22,8 +25,8 @@ import hes.wallis.mark.databinding.ActivityMainRankBinding;
 
 public class MainActivityRank extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainRankBinding binding;
+    protected AppBarConfiguration mAppBarConfiguration;
+    protected ActivityMainRankBinding binding;
 
     static public SharedPreferences marks;
     static public SharedPreferences.Editor editorMarks;
@@ -44,7 +47,6 @@ public class MainActivityRank extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarMainActivityRank.toolbar);
 
-
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -55,6 +57,7 @@ public class MainActivityRank extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main_activity_rank);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -67,6 +70,11 @@ public class MainActivityRank extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main_activity_rank);
+
+        // Set version name
+        TextView textVersion = findViewById(R.id.textVersion);
+        textVersion.setText(BuildConfig.VERSION_NAME);
+
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

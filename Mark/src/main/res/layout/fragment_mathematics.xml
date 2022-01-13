@@ -13,7 +13,7 @@
         android:id="@+id/Exam_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,29 +24,42 @@
         android:id="@+id/Exam_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Exam_1">
+
+    </hes.wallis.mark.MarkLine>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/Average_Mathematics"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Exam_1" />
+        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
     <hes.wallis.mark.MarkLine
         android:id="@+id/Semester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
+        app:layout_constraintBottom_toTopOf="@+id/Average_Mathematics"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Exam_2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <hes.wallis.mark.Average
         android:id="@+id/Average_Mathematics"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Semester" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

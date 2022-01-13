@@ -4,18 +4,21 @@ import android.util.Log;
 
 public class CalculateAverageMarks {
 
+    private static Double average(Double n1, Double n2){
+        Double average;
+        if(n1*n2 == 0.0){
+            average = n1 + n2;
+        } else {
+            average = (n1 + n2)/2.0;
+        }
+        return average;
+    }
+
     //Language
     public static Double German(){
         Double markGermanS1Exam1 = Marks.getFromMemorize("S1GermanExam_1");
         Double markGermanS1Semester = Marks.getFromMemorize("S1GermanSemester");
-        Double average;
-        if(markGermanS1Exam1*markGermanS1Semester == 0.0){
-            average = markGermanS1Exam1 + markGermanS1Semester;
-        } else {
-            average = (markGermanS1Exam1 + markGermanS1Semester)/2.0;
-        }
-        // arrondi dans Resume fragment
-        return average;
+        return Marks.aroundDixie(average(markGermanS1Exam1, markGermanS1Semester));
     }
 
     //Science
@@ -24,22 +27,9 @@ public class CalculateAverageMarks {
         Double markMathematicsS1Exam2 = Marks.getFromMemorize("S1MathematicsExam_2");
         Double markMathematicsS1semester = Marks.getFromMemorize("S1MathematicsSemester");
 
-        Double averageS1;
-        if(markMathematicsS1Exam1 != 0.0 && markMathematicsS1Exam2 != 0.0){
-            averageS1 = (markMathematicsS1Exam1 + markMathematicsS1Exam2)/2;
-        } else {
-            averageS1 = markMathematicsS1Exam1 + markMathematicsS1Exam2;
-        }
-        averageS1 = Marks.aroundDixie(averageS1);
+        Double averageS1 = Marks.aroundDixie(average(markMathematicsS1Exam1, markMathematicsS1Exam2));
 
-        Double average;
-        if(averageS1 != 0.0 && markMathematicsS1semester != 0.0){
-            average = (averageS1 + markMathematicsS1semester)/2;
-        } else {
-            average = averageS1 + markMathematicsS1semester;
-        }
-        average = Marks.aroundDixie(average);
-        return average;
+        return Marks.aroundDixie(average(averageS1, markMathematicsS1semester));
     }
     public static Double ITbonus(){
         Double markItS1Bonus1 = Marks.getFromMemorize("S1ITBonus_1");
@@ -103,21 +93,27 @@ public class CalculateAverageMarks {
     }
 
     //Business
-    public static Double TeM(){
+    public static Double TeMrapports(){
         Double markTeMS1Rapport1 = Marks.getFromMemorize("S1TeMRapport_1");
         Double markTeMS1Rapport2 = Marks.getFromMemorize("S1TeMRapport_2");
         Double markTeMS1Rapport3 = Marks.getFromMemorize("S1TeMRapport_3");
+
+        Double averageRapport = 0.0;
+        if(markTeMS1Rapport1 != 0.0 && markTeMS1Rapport2 != 0.0 && markTeMS1Rapport3 != 0.0){
+            averageRapport += markTeMS1Rapport1;
+            averageRapport += markTeMS1Rapport2;
+            averageRapport += markTeMS1Rapport3;
+            averageRapport /= 3;
+        } else {
+            averageRapport = average(markTeMS1Rapport2, markTeMS1Rapport3);
+        }
+
+        return Marks.aroundDixie(averageRapport);
+    }
+    public static Double TeM(){
+        Double averageRapport = TeMrapports();
         Double markTeMS1Exam1 = Marks.getFromMemorize("S1TeMExam_1");
         Double markTeMS1Semester = Marks.getFromMemorize("S1TeMSemester");
-
-        Double averageRapport;
-        if(markTeMS1Rapport1*markTeMS1Rapport2 == 0.0){
-            averageRapport = markTeMS1Rapport1 + markTeMS1Rapport2;
-        } else {
-            averageRapport = (markTeMS1Rapport1 + markTeMS1Rapport2)/2.0;
-        }
-        averageRapport = Marks.aroundDixie(averageRapport);
-
 
         Double average;
         if(markTeMS1Semester == 0.0){
@@ -136,27 +132,13 @@ public class CalculateAverageMarks {
     }
     public static Double CCo(){
         Double markCCoS1Exam1 = Marks.getFromMemorize("S1CCoExam_1");
-        Double markCCoS1Projet = Marks.getFromMemorize("S1CCoProjet");
+        Double markCCoS1Project = Marks.getFromMemorize("S1CCoProject");
         Double markCCoS1Semester = Marks.getFromMemorize("S1CCoSemester");
 
-        Double averageS1;
-        if(markCCoS1Exam1*markCCoS1Projet == 0.0){
-            averageS1 = markCCoS1Exam1 + markCCoS1Projet;
-        } else {
-            averageS1 = (markCCoS1Exam1 + markCCoS1Projet)/2.0;
-        }
-        averageS1 = Marks.aroundDixie(averageS1);
+        Double averageS1 = Marks.aroundDixie(average(markCCoS1Exam1, markCCoS1Project));
 
 
-        Double average;
-        if(averageS1*markCCoS1Semester == 0.0){
-            average = averageS1 + markCCoS1Semester;
-        } else {
-            average = (averageS1 + markCCoS1Semester)/2.0;
-        }
-        average = Marks.aroundDixie(average);
-
-        return average;
+        return Marks.aroundDixie(average(averageS1, markCCoS1Semester));
     }
     public static Double Mechanic(){
         Double markTeMS1Rapport1 = Marks.getFromMemorize("S1TeMRapport_1");
@@ -165,7 +147,7 @@ public class CalculateAverageMarks {
         Double markTeMS1Exam1 = Marks.getFromMemorize("S1TeMExam_1");
         Double markTeMS1Semester = Marks.getFromMemorize("S1TeMSemester");
         Double markCCoS1Exam1 = Marks.getFromMemorize("S1CCoExam_1");
-        Double markCCoS1Projet = Marks.getFromMemorize("S1CCoProjet");
+        Double markCCoS1Project = Marks.getFromMemorize("S1CCoProject");
         Double markCCoS1Semester = Marks.getFromMemorize("S1CCoSemester");
 
         //Rapport TeM
@@ -185,7 +167,7 @@ public class CalculateAverageMarks {
         boolean S1rapportsTeM = false;
         if (averageRapport != 0.0) S1rapportsTeM = true;
         boolean S1projet = false;
-        if (markCCoS1Projet != 0.0) S1projet = true;
+        if (markCCoS1Project != 0.0) S1projet = true;
         boolean S1CCoEx1 = false;
         if (markCCoS1Exam1 != 0.0) S1CCoEx1 = true;
 
@@ -193,7 +175,7 @@ public class CalculateAverageMarks {
             averageSemester1 += 3 * markTeMS1Exam1;
             averageSemester1 += 3 * averageRapport;
             averageSemester1 += 2 * markCCoS1Exam1;
-            averageSemester1 += 2 * markCCoS1Projet;
+            averageSemester1 += 2 * markCCoS1Project;
             averageSemester1 /= 10.0;
         } else if(S1TeMEx1 && S1rapportsTeM && S1CCoEx1) {
             averageSemester1 += 3 * markTeMS1Exam1;
@@ -260,27 +242,13 @@ public class CalculateAverageMarks {
         return average;
     }
     public static Double Electricity(){
-        Double average;
         Double ein = Marks.aroundDixie(EIN());
         Double eia = Marks.aroundDixie(EIA());
-        if (eia != 0.0){
-            average = (ein+eia)/2.0;
-        } else {
-            average = ein;
-        }
-        average = Marks.aroundDixie(average);
-        return average;
+        return Marks.aroundDixie(average(ein, eia));
     }
     public static Double Business(){
-        Double average;
         Double mechanic = Mechanic();
         Double electricity = Electricity();
-        if(mechanic != 0.0 && electricity != 0.0){
-            average = (mechanic+electricity)/2;
-        } else {
-            average = mechanic+electricity;
-        }
-        average = Marks.aroundDemi(average);
-        return average;
+        return Marks.aroundDemi(average(mechanic, electricity));
     }
 }

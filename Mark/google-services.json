@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "294902783552",
+    "project_id": "dickclock-78fb5",
+    "storage_bucket": "dickclock-78fb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294902783552:android:5d6d1b9bf4cf96492a09a5",
+        "android_client_info": {
+          "package_name": "hes.wallis.mark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294902783552-n2ual7t4vj22k32089t9ktq1vhdm01a2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA825N5pl_q4EORsOuXUINWelbysfvwUEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294902783552-n2ual7t4vj22k32089t9ktq1vhdm01a2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
