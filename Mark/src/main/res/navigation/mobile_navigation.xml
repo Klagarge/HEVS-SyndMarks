@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Semester1"
+    android:id="@+id/Year1"
     app:startDestination="@id/nav_resume">
 
     <fragment
@@ -11,10 +11,10 @@
         android:label="@string/menu_resume"
         tools:layout="@layout/fragment_resume" />
     <fragment
-        android:id="@+id/nav_german"
-        android:name="hes.wallis.mark.ui.german.GermanFragment"
-        android:label="@string/menu_german"
-        tools:layout="@layout/fragment_german" />
+        android:id="@+id/nav_ein"
+        android:name="hes.wallis.mark.ui.ein.EINFragment"
+        android:label="@string/menu_ein"
+        tools:layout="@layout/fragment_ein" />
     <fragment
         android:id="@+id/nav_mathematics"
         android:name="hes.wallis.mark.ui.mathematics.MathematicsFragment"
@@ -26,23 +26,26 @@
         android:label="@string/menu_it"
         tools:layout="@layout/fragment_it" />
     <fragment
-        android:id="@+id/nav_physics"
-        android:name="hes.wallis.mark.ui.physics.PhysicsFragment"
-        android:label="@string/menu_physic"
-        tools:layout="@layout/fragment_physics" />
+        android:id="@+id/nav_cco"
+        android:name="hes.wallis.mark.ui.cco.CCoFragment"
+        android:label="@string/menu_cco" />
     <fragment
-        android:id="@+id/nav_ein"
-        android:name="hes.wallis.mark.ui.ein.EINFragment"
-        android:label="@string/menu_ein"
-        tools:layout="@layout/fragment_ein" />
+        android:id="@+id/nav_german"
+        android:name="hes.wallis.mark.ui.german.GermanFragment"
+        android:label="@string/menu_german"
+        tools:layout="@layout/fragment_german"/>
     <fragment
         android:id="@+id/nav_tem"
         android:name="hes.wallis.mark.ui.TeM.TeMFragment"
         android:label="@string/menu_tem"
         tools:layout="@layout/fragment_tem" />
     <fragment
-        android:id="@+id/nav_cco"
-        android:name="hes.wallis.mark.ui.cco.CCoFragment"
-        android:label="@string/menu_cco" />
+        android:id="@+id/nav_physic"
+        android:name="hes.wallis.mark.ui.physics.PhysicsFragment"
+        android:label="@string/menu_physic"
+        tools:layout="@layout/fragment_physics" />
+    <action
+        android:id="@+id/action_global_nav_mathematics"
+        app:destination="@id/nav_mathematics" />
 
 </navigation>

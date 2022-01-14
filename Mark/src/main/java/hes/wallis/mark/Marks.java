@@ -9,6 +9,7 @@ public class Marks extends MainActivityRank {
 
     String key;
     public Average avg;
+    private int maxPoints;
 
     public Marks(View view){
         MarkLine foo = (MarkLine) view;
@@ -17,6 +18,7 @@ public class Marks extends MainActivityRank {
     public Marks(View view, int pts){
         PointLine foo = (PointLine) view;
         key = foo.createTag(view, pts);
+        maxPoints = pts;
     }
 
     public Marks(View view, Double mark){
@@ -49,7 +51,7 @@ public class Marks extends MainActivityRank {
             mark.setEnabled(false);
             discard.setVisibility(View.VISIBLE);
             grade = Double.parseDouble(s);
-            if(grade>6){
+            if(grade > 6.0){
                 mark.setText("6");
                 grade = 6.0;
             }
@@ -89,15 +91,6 @@ public class Marks extends MainActivityRank {
         MainActivityRank.editorMarks.commit();
         //Log.i("DebugHER", "key: " + key);
         //Log.i("DebugHER", "write: " + n.toString());
-    }
-
-    public static String toHing(Button button, String def){
-        Double n = getFromMemorize(MarkLine.getTag(button));
-        String s = n.toString();
-        if (n > 0.0){
-            return s;
-        }
-        return def;
     }
 
     static String toText(String key){
