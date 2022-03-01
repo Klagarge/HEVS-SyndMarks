@@ -1,65 +1,62 @@
-package hes.wallis.mark.ui.it;
+package hes.wallis.mark.ui.cco;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentItBinding;
+import hes.wallis.mark.databinding.FragmentS1CcoBinding;
 
-public class ITFragment extends SubjectFragment {
 
-    private ITViewModel ITViewModel;
-    private FragmentItBinding binding;
+public class S1CCoFragment extends SubjectFragment {
+
+    private S1CCoViewModel S1CCoViewModel;
+    private FragmentS1CcoBinding binding;
 
     Double average;
-    Double bonusS1;
     Marks averageSemester1;
-    Marks ITBonusS1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        ITViewModel =
-                new ViewModelProvider(this).get(ITViewModel.class);
+        S1CCoViewModel =
+                new ViewModelProvider(this).get(S1CCoViewModel.class);
 
-        binding = FragmentItBinding.inflate(inflater, container, false);
+        binding = FragmentS1CcoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        S1CCoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+            }
+        });
+
         Marks Exam1 = new Marks(binding.Exam1);
-        Marks Bonus1 = new Marks(binding.Bonus1, 43);
-        Marks Bonus2 = new Marks(binding.Bonus2, 16);
-        Marks Project = new Marks(binding.Project, 13);
+        Marks Project = new Marks(binding.Project);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageIT, average);
-        ITBonusS1 = new Marks(binding.Bonus, bonusS1);
+        averageSemester1 = new Marks(binding.AverageCCo, average);
 
         return root;
     }
 
     @Override
     public void calculateAvg(){
-        average = CalculateAverageMarks.IT();
-        bonusS1 = CalculateAverageMarks.ITbonus();
+        average = CalculateAverageMarks.CCoS1();
     }
-
     @Override
     public void refresh(){
         super.refresh();
         EditText output = averageSemester1.avg.outputMark;
         output.setText(average.toString());
-        Log.i("DebugHER", "Average IT: " + average);
-        EditText bonus = ITBonusS1.avg.outputMark;
-        bonus.setText(bonusS1.toString());
-        Log.i("DebugHER", "Bonus IT: " + bonusS1);
     }
 
     @Override

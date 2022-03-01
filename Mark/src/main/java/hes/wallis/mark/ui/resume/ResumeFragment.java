@@ -1,18 +1,14 @@
 package hes.wallis.mark.ui.resume;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import hes.wallis.mark.BuildConfig;
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.MainActivityRank;
 import hes.wallis.mark.Marks;
@@ -33,26 +29,18 @@ public class ResumeFragment extends SubjectFragment {
         binding = FragmentResumeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        Double avgGerman = CalculateAverageMarks.German();
-        Double avgMath = CalculateAverageMarks.Mathematics();
-        Double avgIT = CalculateAverageMarks.IT();
-        Double avgPhysic = CalculateAverageMarks.Physic();
-        Double avgSciences = CalculateAverageMarks.Science();
-        Double avgMechanic = CalculateAverageMarks.Mechanic();
-        Double avgElectricity = CalculateAverageMarks.Electricity();
-        Double avgBusiness = CalculateAverageMarks.Business();
+        Marks german = new Marks(binding.German, CalculateAverageMarks.German());
 
-        Marks german = new Marks(binding.German, Marks.aroundDemi(avgGerman));
-        Marks mathematics = new Marks(binding.Mathematics, avgMath);
-        Marks it = new Marks(binding.IT, avgIT);
-        //Marks physic = new Marks(binding.Physic, avgPhysic);
-        Marks mechanic = new Marks(binding.Mecanic, avgMechanic);
-        Marks electricity = new Marks(binding.Electricity, avgElectricity);
-
+        Marks mathematics = new Marks(binding.Mathematics, CalculateAverageMarks.Mathematics());
+        Marks it = new Marks(binding.IT, CalculateAverageMarks.IT());
+        Marks physic = new Marks(binding.Physic, CalculateAverageMarks.Physics());
         TextView science = binding.avgScience;
-        science.setText("Average: " + Marks.aroundDemi(avgSciences));
+        science.setText("Average: " + CalculateAverageMarks.Science());
+
+        Marks mechanic = new Marks(binding.Mecanic, CalculateAverageMarks.Mechanic());
+        Marks electricity = new Marks(binding.Electricity, CalculateAverageMarks.Electricity());
         TextView business = binding.avgBusiness;
-        business.setText("Average: " + Marks.aroundDemi(avgBusiness));
+        business.setText("Average: " + CalculateAverageMarks.Business());
 
         return root;
     }

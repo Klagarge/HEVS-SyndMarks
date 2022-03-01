@@ -1,55 +1,48 @@
-package hes.wallis.mark.ui.ein;
+package hes.wallis.mark.ui.it;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentEinBinding;
+import hes.wallis.mark.databinding.FragmentS1ItBinding;
 
-public class EINFragment extends SubjectFragment {
+public class S1ITFragment extends SubjectFragment {
 
-    private EINViewModel einViewModel;
-    private FragmentEinBinding binding;
+    private S1ITViewModel S1ITViewModel;
+    private FragmentS1ItBinding binding;
 
     Double average;
     Marks averageSemester1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        einViewModel =
-                new ViewModelProvider(this).get(EINViewModel.class);
+        S1ITViewModel =
+                new ViewModelProvider(this).get(S1ITViewModel.class);
 
-        binding = FragmentEinBinding.inflate(inflater, container, false);
+        binding = FragmentS1ItBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        einViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {}
-        });
-
         Marks Exam1 = new Marks(binding.Exam1);
-        Marks Exam2 = new Marks(binding.Exam2);
-        Marks Project = new Marks(binding.Project);
+        Marks Bonus = new Marks(binding.Bonus, 1);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageEIN, average);
-
+        averageSemester1 = new Marks(binding.AverageIT, average);
 
         return root;
     }
 
     @Override
     public void calculateAvg(){
-        average = CalculateAverageMarks.EIN();
+        average = CalculateAverageMarks.ITS1();
     }
 
     @Override
@@ -57,6 +50,7 @@ public class EINFragment extends SubjectFragment {
         super.refresh();
         EditText output = averageSemester1.avg.outputMark;
         output.setText(average.toString());
+        Log.i("DebugHER", "Average IT: " + average);
     }
 
     @Override

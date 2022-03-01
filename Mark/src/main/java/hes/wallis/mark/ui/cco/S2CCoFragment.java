@@ -1,4 +1,4 @@
-package hes.wallis.mark.ui.german;
+package hes.wallis.mark.ui.cco;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,47 +14,47 @@ import androidx.lifecycle.ViewModelProvider;
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentGermanBinding;
+import hes.wallis.mark.databinding.FragmentS2CcoBinding;
 
-public class GermanFragment extends SubjectFragment {
 
-    private GermanViewModel germanViewModel;
-    private FragmentGermanBinding binding;
+public class S2CCoFragment extends SubjectFragment {
+
+    private S2CCoViewModel S2CCoViewModel;
+    private FragmentS2CcoBinding binding;
 
     Double average;
-    Marks averageSemester1;
+    Marks averageSemester2;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        germanViewModel =
-                new ViewModelProvider(this).get(GermanViewModel.class);
+        S2CCoViewModel =
+                new ViewModelProvider(this).get(S2CCoViewModel.class);
 
-        binding = FragmentGermanBinding.inflate(inflater, container, false);
+        binding = FragmentS2CcoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
-        germanViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        S2CCoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             }
         });
 
-        Marks Exam1 = new Marks(binding.Exam1);
+        Marks Project = new Marks(binding.Project);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageGerman, average);
+        averageSemester2 = new Marks(binding.AverageCCo, average);
 
         return root;
     }
 
     @Override
-     public void calculateAvg(){
-        average = CalculateAverageMarks.German();
+    public void calculateAvg(){
+        average = CalculateAverageMarks.CCoS2();
     }
     @Override
     public void refresh(){
         super.refresh();
-        EditText output = averageSemester1.avg.outputMark;
+        EditText output = averageSemester2.avg.outputMark;
         output.setText(average.toString());
     }
 

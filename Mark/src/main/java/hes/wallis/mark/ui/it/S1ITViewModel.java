@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ITViewModel extends ViewModel {
+public class S1ITViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ITViewModel() {
+    public S1ITViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is Informatic fragment");
     }

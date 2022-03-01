@@ -1,4 +1,4 @@
-package hes.wallis.mark.ui.cco;
+package hes.wallis.mark.ui.mathematics;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,44 +14,46 @@ import androidx.lifecycle.ViewModelProvider;
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentCcoBinding;
+import hes.wallis.mark.databinding.FragmentS1MathematicsBinding;
 
+public class S1MathematicsFragment extends SubjectFragment {
 
-public class CCoFragment extends SubjectFragment {
-
-    private hes.wallis.mark.ui.cco.CCoViewModel CCoViewModel;
-    private FragmentCcoBinding binding;
+    private S1MathematicsViewModel S1MathematicsViewModel;
+    private FragmentS1MathematicsBinding binding;
 
     Double average;
     Marks averageSemester1;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        CCoViewModel =
-                new ViewModelProvider(this).get(CCoViewModel.class);
+        S1MathematicsViewModel =
+                new ViewModelProvider(this).get(S1MathematicsViewModel.class);
 
-        binding = FragmentCcoBinding.inflate(inflater, container, false);
+        binding = FragmentS1MathematicsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        CCoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        S1MathematicsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             }
         });
 
         Marks Exam1 = new Marks(binding.Exam1);
-        Marks Project = new Marks(binding.Project);
+        Marks Exam2 = new Marks(binding.Exam2);
         Marks semester = new Marks(binding.Semester);
         calculateAvg();
-        averageSemester1 = new Marks(binding.AverageCCo, average);
+        averageSemester1 = new Marks(binding.AverageMathematics, average);
 
         return root;
     }
 
+
     @Override
     public void calculateAvg(){
-        average = CalculateAverageMarks.CCo();
+        average = CalculateAverageMarks.MathematicsS1();
     }
+
     @Override
     public void refresh(){
         super.refresh();
@@ -59,9 +61,12 @@ public class CCoFragment extends SubjectFragment {
         output.setText(average.toString());
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
+
 }

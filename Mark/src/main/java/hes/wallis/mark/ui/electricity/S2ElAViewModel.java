@@ -1,19 +1,16 @@
-package hes.wallis.mark.ui.mathematics;
+package hes.wallis.mark.ui.electricity;
 
-import android.view.View;
-import android.widget.Button;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import hes.wallis.mark.R;
 
-public class MathematicsViewModel extends ViewModel {
+public class S2ElAViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public MathematicsViewModel() {
+    public S2ElAViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("1er Semestre");
+        mText.setValue("This is ElA fragment");
     }
 
     public LiveData<String> getText() {

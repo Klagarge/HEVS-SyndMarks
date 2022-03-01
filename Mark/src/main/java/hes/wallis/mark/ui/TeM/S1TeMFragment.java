@@ -1,27 +1,24 @@
 package hes.wallis.mark.ui.TeM;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import hes.wallis.mark.CalculateAverageMarks;
 import hes.wallis.mark.Marks;
 import hes.wallis.mark.SubjectFragment;
-import hes.wallis.mark.databinding.FragmentTemBinding;
+import hes.wallis.mark.databinding.FragmentS1TemBinding;
 
 
-public class TeMFragment extends SubjectFragment {
+public class S1TeMFragment extends SubjectFragment {
 
-    private TeMViewModel teMViewModel;
-    private FragmentTemBinding binding;
+    private S1TeMViewModel s1TeMViewModel;
+    private FragmentS1TemBinding binding;
 
     Double average;
     Double avgRapports;
@@ -30,13 +27,13 @@ public class TeMFragment extends SubjectFragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        teMViewModel =
-                new ViewModelProvider(this).get(TeMViewModel.class);
+        s1TeMViewModel =
+                new ViewModelProvider(this).get(S1TeMViewModel.class);
 
-        binding = FragmentTemBinding.inflate(inflater, container, false);
+        binding = FragmentS1TemBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        teMViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        s1TeMViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             }

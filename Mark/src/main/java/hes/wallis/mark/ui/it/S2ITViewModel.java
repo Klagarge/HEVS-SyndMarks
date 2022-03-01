@@ -1,16 +1,16 @@
-package hes.wallis.mark.ui.TeM;
+package hes.wallis.mark.ui.it;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class TeMViewModel extends ViewModel {
+public class S2ITViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public TeMViewModel() {
+    public S2ITViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Mechanic fragment");
+        mText.setValue("This is Informatic fragment");
     }
 
     public LiveData<String> getText() {

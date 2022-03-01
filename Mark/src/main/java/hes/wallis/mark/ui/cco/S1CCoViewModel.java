@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CCoViewModel extends ViewModel {
+public class S1CCoViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public CCoViewModel() {
+    public S1CCoViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is Mechanic fragment");
     }

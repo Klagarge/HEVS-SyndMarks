@@ -83,6 +83,14 @@
 
         </hes.wallis.mark.Average>
 
+        <hes.wallis.mark.Average
+            android:id="@+id/Physic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IT" />
+
         <TextView
             android:id="@+id/avgScience"
             android:layout_width="wrap_content"
@@ -92,7 +100,7 @@
             android:textSize="34sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/IT" />
+            app:layout_constraintTop_toBottomOf="@+id/Physic" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,7 +6,6 @@
 
     <item
         android:id="@+id/switchSemester"
-        android:title="Semester: "
         android:visible="true"
         app:actionLayout="@layout/switch_item"
         app:showAsAction="always" />
@@ -17,7 +16,11 @@
         android:id="@+id/German"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_german"
+            android:id="@+id/nav_german_S1"
+            android:icon="@drawable/german"
+            android:title="@string/menu_german" />
+        <item
+            android:id="@+id/nav_german_S2"
             android:icon="@drawable/german"
             android:title="@string/menu_german" />
     </group>
@@ -25,15 +28,23 @@
         android:id="@+id/ScientificBases"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_mathematics"
+            android:id="@+id/nav_mathematics_S1"
             android:icon="@drawable/mathematics"
             android:title="@string/menu_mathematics" />
         <item
-            android:id="@+id/nav_it"
+            android:id="@+id/nav_mathematics_S2"
+            android:icon="@drawable/mathematics"
+            android:title="@string/menu_mathematics" />
+        <item
+            android:id="@+id/nav_it_S1"
             android:icon="@drawable/informatic"
             android:title="@string/menu_it" />
         <item
-            android:id="@+id/nav_physic"
+            android:id="@+id/nav_it_S2"
+            android:icon="@drawable/informatic"
+            android:title="@string/menu_it" />
+        <item
+            android:id="@+id/nav_physic_S2"
             android:icon="@drawable/physic"
             android:title="@string/menu_physic"
             android:visible="false" />
@@ -42,20 +53,28 @@
         android:id="@+id/BusinessBases"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_ein"
+            android:id="@+id/nav_eln_S1"
             android:icon="@drawable/electricity"
-            android:title="@string/menu_ein" />
+            android:title="@string/menu_eln" />
         <item
-            android:id="@+id/nav_eia"
+            android:id="@+id/nav_ela_S2"
             android:icon="@drawable/electricity"
-            android:title="@string/menu_eia"
+            android:title="@string/menu_ela"
             android:visible="false" />
         <item
-            android:id="@+id/nav_tem"
+            android:id="@+id/nav_tem_S1"
             android:icon="@drawable/mechanic"
             android:title="@string/menu_tem" />
         <item
-            android:id="@+id/nav_cco"
+            android:id="@+id/nav_static_S2"
+            android:icon="@drawable/mechanic"
+            android:title="@string/menu_static" />
+        <item
+            android:id="@+id/nav_cco_S1"
+            android:icon="@drawable/mechanic"
+            android:title="@string/menu_cco" />
+        <item
+            android:id="@+id/nav_cco_S2"
             android:icon="@drawable/mechanic"
             android:title="@string/menu_cco" />
     </group>

@@ -11,41 +11,69 @@
         android:label="@string/menu_resume"
         tools:layout="@layout/fragment_resume" />
     <fragment
-        android:id="@+id/nav_ein"
-        android:name="hes.wallis.mark.ui.ein.EINFragment"
-        android:label="@string/menu_ein"
-        tools:layout="@layout/fragment_ein" />
-    <fragment
-        android:id="@+id/nav_mathematics"
-        android:name="hes.wallis.mark.ui.mathematics.MathematicsFragment"
-        android:label="@string/menu_mathematics"
-        tools:layout="@layout/fragment_mathematics" />
-    <fragment
-        android:id="@+id/nav_it"
-        android:name="hes.wallis.mark.ui.it.ITFragment"
-        android:label="@string/menu_it"
-        tools:layout="@layout/fragment_it" />
-    <fragment
-        android:id="@+id/nav_cco"
-        android:name="hes.wallis.mark.ui.cco.CCoFragment"
-        android:label="@string/menu_cco" />
-    <fragment
-        android:id="@+id/nav_german"
-        android:name="hes.wallis.mark.ui.german.GermanFragment"
+        android:id="@+id/nav_german_S1"
+        android:name="hes.wallis.mark.ui.german.S1GermanFragment"
         android:label="@string/menu_german"
-        tools:layout="@layout/fragment_german"/>
+        tools:layout="@layout/fragment_s1_german"/>
     <fragment
-        android:id="@+id/nav_tem"
-        android:name="hes.wallis.mark.ui.TeM.TeMFragment"
-        android:label="@string/menu_tem"
-        tools:layout="@layout/fragment_tem" />
+        android:id="@+id/nav_german_S2"
+        android:name="hes.wallis.mark.ui.german.S2GermanFragment"
+        android:label="@string/menu_german"
+        tools:layout="@layout/fragment_s2_german"/>
     <fragment
-        android:id="@+id/nav_physic"
-        android:name="hes.wallis.mark.ui.physics.PhysicsFragment"
+        android:id="@+id/nav_mathematics_S1"
+        android:name="hes.wallis.mark.ui.mathematics.S1MathematicsFragment"
+        android:label="@string/menu_mathematics"
+        tools:layout="@layout/fragment_s1_mathematics" />
+    <fragment
+        android:id="@+id/nav_mathematics_S2"
+        android:name="hes.wallis.mark.ui.mathematics.S2MathematicsFragment"
+        android:label="@string/menu_mathematics"
+        tools:layout="@layout/fragment_s2_mathematics" />
+    <fragment
+        android:id="@+id/nav_it_S1"
+        android:name="hes.wallis.mark.ui.it.S1ITFragment"
+        android:label="@string/menu_it"
+        tools:layout="@layout/fragment_s1_it" />
+    <fragment
+        android:id="@+id/nav_it_S2"
+        android:name="hes.wallis.mark.ui.it.S2ITFragment"
+        android:label="@string/menu_it"
+        tools:layout="@layout/fragment_s2_it" />
+    <fragment
+        android:id="@+id/nav_physic_S2"
+        android:name="hes.wallis.mark.ui.physics.S2PhysicsFragment"
         android:label="@string/menu_physic"
-        tools:layout="@layout/fragment_physics" />
-    <action
-        android:id="@+id/action_global_nav_mathematics"
-        app:destination="@id/nav_mathematics" />
+        tools:layout="@layout/fragment_s2_physics" />
+    <fragment
+        android:id="@+id/nav_eln_S1"
+        android:name="hes.wallis.mark.ui.electricity.S1ElNFragment"
+        android:label="@string/menu_eln"
+        tools:layout="@layout/fragment_s1_eln" />
+    <fragment
+        android:id="@+id/nav_ela_S2"
+        android:name="hes.wallis.mark.ui.electricity.S2ElAFragment"
+        android:label="@string/menu_ela"
+        tools:layout="@layout/fragment_s2_ela" />
+    <fragment
+        android:id="@+id/nav_tem_S1"
+        android:name="hes.wallis.mark.ui.TeM.S1TeMFragment"
+        android:label="@string/menu_tem"
+        tools:layout="@layout/fragment_s1_tem" />
+    <fragment
+        android:id="@+id/nav_static_S2"
+        android:name="hes.wallis.mark.ui.Static.S2StaticFragment"
+        android:label="@string/menu_static"
+        tools:layout="@layout/fragment_s2_static" />
+    <fragment
+        android:id="@+id/nav_cco_S1"
+        android:name="hes.wallis.mark.ui.cco.S1CCoFragment"
+        android:label="@string/menu_cco"
+        tools:layout="@layout/fragment_s1_cco" />
+    <fragment
+        android:id="@+id/nav_cco_S2"
+        android:name="hes.wallis.mark.ui.cco.S2CCoFragment"
+        android:label="@string/menu_cco"
+        tools:layout="@layout/fragment_s2_cco" />
 
 </navigation>

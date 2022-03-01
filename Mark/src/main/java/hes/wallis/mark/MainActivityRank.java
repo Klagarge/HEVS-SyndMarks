@@ -12,7 +12,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import hes.wallis.mark.databinding.ActivityMainRankBinding;
 
 public class MainActivityRank extends AppCompatActivity {
@@ -20,6 +19,9 @@ public class MainActivityRank extends AppCompatActivity {
     protected AppBarConfiguration mAppBarConfiguration;
     protected ActivityMainRankBinding binding;
     protected NavigationView navigationView;
+
+    public static MainActivityRank mainActivityRank;
+    public boolean Semester2 = true;
 
     static public SharedPreferences marks;
     static public SharedPreferences.Editor editorMarks;
@@ -29,6 +31,7 @@ public class MainActivityRank extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mainActivityRank = this;
 
         // Set memories
         marks = getSharedPreferences("marks", 0);
@@ -71,19 +74,49 @@ public class MainActivityRank extends AppCompatActivity {
 
         // Get Semester
         Switch semesterSwitch = navigationView.getMenu().findItem(R.id.switchSemester).getActionView().findViewById(R.id.SwitchFromSwitchItem);
+        updateSemester(semesterSwitch);
         semesterSwitch.setOnClickListener(v -> {
-            String semester = "Semester ";
-            if(semesterSwitch.isChecked()){
-                semester += 2;
-                navigationView.getMenu().findItem(R.id.nav_physic).setVisible(true);
-            } else {
-                semester += 1;
-                navigationView.getMenu().findItem(R.id.nav_physic).setVisible(false);
-            }
-            semesterSwitch.setText(semester);
-        });
+                    updateSemester(semesterSwitch);
+                });
 
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    private void updateSemester(Switch semesterSwitch){
+        String semester = "Semester ";
+        if(semesterSwitch.isChecked()){
+            semester += 2;
+            Semester2 = true;
+            navigationView.getMenu().findItem(R.id.nav_german_S1).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_german_S2).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_mathematics_S1).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_mathematics_S2).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_it_S1).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_it_S2).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_physic_S2).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_eln_S1).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_ela_S2).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_tem_S1).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_static_S2).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_cco_S1).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_cco_S2).setVisible(true);
+        } else {
+            semester += 1;
+            Semester2 = false;
+            navigationView.getMenu().findItem(R.id.nav_german_S1).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_german_S2).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_mathematics_S1).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_mathematics_S2).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_it_S1).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_it_S2).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_physic_S2).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_eln_S1).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_ela_S2).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_tem_S1).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_static_S2).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_cco_S1).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_cco_S2).setVisible(false);
+        }
+        semesterSwitch.setText(semester);
     }
 }

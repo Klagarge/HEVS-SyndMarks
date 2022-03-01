@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:textAlignment="center"
-    tools:context=".ui.mathematics.MathematicsFragment">
+    tools:context=".ui.mathematics.S1MathematicsFragment">
 
     <hes.wallis.mark.MarkLine
         android:id="@+id/Exam_1"
